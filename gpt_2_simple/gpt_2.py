@@ -569,11 +569,11 @@ def get_tarfile_name(checkpoint_folder):
     return tarfile_name
 
 
-def copy_checkpoint_to_gdrive(run_name='run1', copy_folder=False):
+def copy_checkpoint_to_gdrive(run_name='run1', copy_folder=False, checkpoint_dir='checkpoint'):
     """Copies the checkpoint folder to a mounted Google Drive."""
     is_mounted()
 
-    checkpoint_folder = os.path.join('checkpoint', run_name)
+    checkpoint_folder = os.path.join(checkpoint_dir, run_name)
 
     if copy_folder:
         shutil.copytree(checkpoint_folder, "/content/drive/My Drive/" + checkpoint_folder)
